@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dtcnxxofouqf8"]
+[gd_scene load_steps=10 format=3 uid="uid://dtcnxxofouqf8"]
 
 [ext_resource type="MeshLibrary" uid="uid://c0c3djgifhbb0" path="res://MeshLibraries/space_library.tres" id="1_bo3yr"]
 
@@ -17,6 +17,20 @@ glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5vx1e"]
 albedo_color = Color(0.22670749, 0.22670749, 0.22670746, 1)
+
+[sub_resource type="Curve3D" id="Curve3D_bo3yr"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -14.147756, 0, -9.955639, -1.534, 0, -0.521, 1.534, 0, 0.521, -13.355849, -0.05249405, 5.8708625, -0.706, 0, 0.487, 0.70604193, 0.108356476, -0.48725843, -2.212334, -0.03394699, 5.688835, -0.5830078, -0.0015449524, 0.29334617, 0.5830078, 0.0015449524, -0.29334617, -1.8929892, -0.0002193451, -1.8386762, -0.56369925, 0.00033569336, -0.40313077, 0.56369925, -0.00033569336, 0.40313077, 5.7953053, 0, -2.1053739, -0.3900237, 0.00025749207, -0.32163, 0.3900237, -0.00025749207, 0.32163, 5.9134083, -0.0012378693, 2.2668135, -0.85496426, -0.0046834946, -0.618729, 0.85496426, 0.0046834946, 0.618729, 13.742413, -0.00015449524, 2.3431158, 0, 0, 0, 0, 0, 0, 14.007114, 0, 11.502937),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bo3yr"]
+albedo_color = Color(0.12955853, 0.12955844, 0.12955841, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eesb3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3o4py"]
 
 [node name="BaseLevel" type="Node3D"]
 
@@ -40,5 +54,56 @@ mesh_library = ExtResource("1_bo3yr")
 cell_size = Vector3(4, 4, 4)
 cell_center_y = false
 data = {
-"cells": PackedInt32Array(65535, 65534, 1179648, 65535, 65535, 1179648, 65535, 0, 1179648, 65535, 1, 1179648, 65535, 2, 1179648, 65531, 65535, 1179648, 65532, 65535, 1179648, 65533, 65535, 1179648, 65534, 65535, 1179648, 4, 65535, 1179648, 3, 65535, 1179648, 2, 65535, 1179648, 1, 65535, 1179648, 0, 65535, 1179648, 65534, 65534, 1179648, 65533, 65534, 1179648, 65532, 65534, 1179648, 65531, 65534, 1179648, 65531, 0, 1179648, 65532, 0, 1179648, 65533, 0, 1179648, 65534, 0, 1179648, 65534, 1, 1179648, 65533, 1, 1179648, 65532, 1, 1179648, 65532, 2, 1179648, 65531, 2, 1179648, 65531, 1, 1179648, 65533, 2, 1179648, 65534, 2, 1179648, 0, 2, 1179648, 0, 1, 1179648, 0, 0, 1179648, 0, 65534, 1179648, 1, 65534, 1179648, 1, 0, 1179648, 1, 1, 1179648, 1, 2, 1179648, 2, 2, 1179648, 2, 1, 1179648, 2, 0, 1179648, 2, 65534, 1179648, 3, 65534, 1179648, 3, 0, 1179648, 3, 1, 1179648, 3, 2, 1179648, 4, 2, 1179648, 4, 1, 1179648, 4, 0, 1179648, 4, 65534, 1179648)
+"cells": PackedInt32Array(65535, 65534, 0, 65535, 2, 1179648, 65534, 65534, 1179648, 65531, 65534, 1179648, 65531, 0, 1179648, 65532, 2, 1179648, 65531, 2, 1179648, 0, 2, 1179648, 0, 65534, 0, 1, 65534, 1179648, 1, 2, 1179648, 2, 65534, 1179648, 3, 65534, 1179648, 4, 2, 1179648, 4, 1, 1179648, 4, 0, 0, 4, 65534, 1179648, 65533, 2, 0, 65534, 2, 0, 65533, 65534, 0, 65533, 0, 0, 2, 2, 0, 0, 0, 0, 65534, 0, 0, 65531, 65535, 0, 65533, 65535, 0, 65534, 65535, 0, 0, 1, 0, 1, 1, 0, 2, 1, 0, 2, 65535, 0, 3, 65535, 0, 4, 65535, 0, 65531, 1, 0)
 }
+
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_bo3yr")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.9988068, -0.00016590006, 0.048427068, 0, 0.999982, 0.00342562, -0.04842761, 0.0034216451, -0.99879557, -14.147756, 0, -9.955639)
+
+[node name="Road" type="CSGPolygon3D" parent="Path3D"]
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 0.5
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = SubResource("StandardMaterial3D_bo3yr")
+
+[node name="RightEdge" type="CSGPolygon3D" parent="Path3D"]
+polygon = PackedVector2Array(1.1, 0, 1.1, 0.25, 0.9, 0.25, 0.9, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 0.5
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = SubResource("StandardMaterial3D_eesb3")
+
+[node name="LeftEdge" type="CSGPolygon3D" parent="Path3D"]
+polygon = PackedVector2Array(-1.1, 0, -1.1, 0.25, -0.9, 0.25, -0.9, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 0.5
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = SubResource("StandardMaterial3D_3o4py")
